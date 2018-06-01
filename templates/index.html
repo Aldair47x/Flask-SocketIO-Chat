@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Aldair47x-Chat</title>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Rochester|Sniglet" rel="stylesheet"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="{{ url_for('static', filename='/styles.css') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css' ) }}">
+    </head>
+    <body>
+        <ul id="messages"></ul>
+        <input id="myMessage" type="text">
+        <button id="send">Send</button>
+        <div id="chat">
+            <h2>voiceChat ~</h2>
+            <div id="chat-window">
+                <div id="output"></div>
+                <div id="feedback"></div>
+            </div>
+            <input id="handle" type="text" placeholder="Handle" />
+            
+                    
+                  
+        </div>
+    </body>
+    <!--
+        <script type="text/javascript" src="{{ url_for('static', filename='js/chat.js' ) }}"></script>
+
+    -->
+
+    <script>
+        const socket = io()
+        socket.emit('message', 'hello')
+        socket.on('message', function(msg) {
+          $('#messages').append('<li>' + msg + '</li>')
+        })
+        $('#send').on('click', function() {
+          socket.send($('#myMessage').val());
+          $('#myMessage').val('');
+        })
+    </script>
+</html>
+
