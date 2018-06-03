@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Aldair47x {{ room }}</title>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Chewy|Marck+Script" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_paper.css' ) }}">
+        <script type="text/javascript" charset="utf-8">
+            var socket;
+            $(document).ready(function(){
+                socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+                socket.on('connect', function() {
+                    socket.emit('joined', {});
+                });
+                socket.on('status', function(data) {
+                    $('#chat').val($('#chat').val() + '<' + data.msg + '>\n');
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                });
+                socket.on('message', function(data) {
+                    $('#chat').val($('#chat').val() + data.msg + '\n');
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                });
+                $('#text').keypress(function(e) {
+                    var code = e.keyCode || e.which;
+                    if (code == 13) {
+                        text = $('#text').val();
+                        $('#text').val('');
+                        socket.emit('text', {msg: text});
+                    }
+                });
+            });
+            function leave_room() {
+                socket.emit('left', {}, function() {
+                    socket.disconnect();
+
+                    // go back to the login page
+                    window.location.href = "{{ url_for('main.index') }}";
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+
+                <div id="paper">
+            
+                    <div id="margin" style="font-family: 'Marck Script', cursive;
+                            font-size:32px;">
+                            Haz iniciado el chat en la sala -> {{ room }} </div>
+                    <textarea id="chat" readonly="readonly" cols="80" rows="20" 
+                    style="height: 450px; max-height: 450px; width: 800px;
+                        background-color:#FFF;
+                        color:#222;
+                        font-family: 'Chewy', cursive;
+                        font-weight:normal;
+                        font-size:16px;
+                        resize:none;
+                        line-height:40px;
+                        padding-left:100px;
+                        padding-right:100px;
+                        padding-top:45px;
+                        padding-bottom:34px;
+                        background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+                        background-repeat:repeat-y, repeat;
+                        -webkit-border-radius:12px;
+                        border-radius:12px;
+                        -webkit-box-shadow: 0px 2px 14px #000;
+                        box-shadow: 0px 2px 14px #000;
+                        border-top:1px solid #FFF;
+                        border-bottom:1px solid #FFF;
+                        overflow-y: scroll;"> </textarea>
+                    <br><br>
+                </div>
+                <input id="text" placeholder="Enter your message here"  style=" width: 800px;  padding: 10px 20px;
+                        box-sizing: border-box;
+                        background: #eee;
+                        border: 0;
+                        display: block;
+                        width: 100%;
+                        background: #fff;
+                        border-bottom: 1px solid #eee;
+                        font-family: Nunito;
+                        font-size: 16px;">
+
+                <a href="#" onclick="leave_room();">Leave this room</a>
+        </div>
+
+    </body>
+        
+</html>
