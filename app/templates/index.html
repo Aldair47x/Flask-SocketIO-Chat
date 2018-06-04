@@ -38,24 +38,63 @@
                             margin: 30px;">Final project distributed systems</h1>
                 
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
-					<input class="input100" id="name" type="text" name="name" placeholder="Nickname">
+					<input class="input100" class="lnr lnr-user" id="name" type="text" name="name" placeholder="Nickname">
 					<label class="label-input100" for="name">
-                        
-                        <span class="lnr lnr-user"></span>
+						<span class="lnr lnr-user" style="margin: 0px 0px 0px 200px;"></span>  
+						<div style="visibility: hidden;">
+							
+							{{ form.hidden_tag() }}
+                    		{{ form.name() }}
+						</div>
+                      
                         
                     </label>
-                    {{ form.hidden_tag() }}
-                    {{ form.name() }}
+                    
                 </div>
                 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                        <input class="input100" id="name" type="text" name="name" placeholder="Room Name">
-                        <label class="label-input100" for="name">
-                            <span class="lnr lnr-users"></span>
+                        <input class="input100" id="room" type="text" name="room" placeholder="Room Name">
+                        <label class="label-input100" for="room">
+								<span class="lnr lnr-users" style="margin: 0px 0px 0px 20px;"></span>  
+								<div style="visibility: none;">
+									{{ room }}
+								</div>
                         </label>
-                        {{ form.hidden_tag() }}
-                        {{ form.room() }}
+                        
                 </div>
+
+				
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input class="input100" id="email" type="email" name="email" placeholder="Email">
+					<label class="label-input100" for="email">
+						<span class="lnr lnr-envelope"></span>
+					</label>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<input class="input100" id="pass" type="password" name="pass" placeholder="Password">
+					<label class="label-input100" for="pass">
+						<span class="lnr lnr-mustache"></span>
+					</label>
+				</div>
+	
+				<div class="wrap-input100 validate-input" data-validate = "Age is required: 20">
+					<input class="input100" id="edad" type="date" name="edad" placeholder="Date">
+					<label class="label-input100" for="edad">
+						<span class="lnr lnr-calendar-full"></span>
+					</label>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input  class="input100" id="genero" type="checkbox" name="Masculino" placeholder="Genre" style="margin: 0px 0px 0px 200px;">
+					<label class="label-input100" for="genre">
+							<select style="margin: 0px 0px 0px 20px;" >
+									<option value="Femenino">Female</option>
+									<option value="Masculino">Male</option>
+							</select>
+					</label>
+					
+				</div>
 
 				<div class="container-contact100-form-btn">
                         <div class="wrap-contact100-form-btn">
@@ -64,7 +103,7 @@
                                 Submit {{ form.submit() }}
                             </button>
                         </div>
-                </div>
+				</div>
 
 				
 			</form>
