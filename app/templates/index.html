@@ -1,14 +1,98 @@
-<html>
-    <head>
-        <title>Flask-SocketIO-Chat</title>
-    </head>
-    <body>
-        <h1>Flask-SocketIO-Chat</h1>
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            {{ form.name.label }}: {{ form.name() }} {% for error in form.name.errors %}{{ error }}{% endfor %}<br>
-            {{ form.room.label }}: {{ form.room() }} {% for error in form.room.errors %}{{ error }}{% endfor %}<br>
-            {{ form.submit() }}
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Aldair47x</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico' ) }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css' ) }}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" method="POST">
+                <h1 style="font-family: 'Berkshire Swash', cursive;
+                            margin: 30px;">Final project distributed systems</h1>
+                
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<input class="input100" id="name" type="text" name="name" placeholder="Nickname">
+					<label class="label-input100" for="name">
+                        
+                        <span class="lnr lnr-user"></span>
+                        
+                    </label>
+                    {{ form.hidden_tag() }}
+                    {{ form.name() }}
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Name is required">
+                        <input class="input100" id="name" type="text" name="name" placeholder="Room Name">
+                        <label class="label-input100" for="name">
+                            <span class="lnr lnr-users"></span>
+                        </label>
+                        {{ form.hidden_tag() }}
+                        {{ form.room() }}
+                </div>
+
+				<div class="container-contact100-form-btn">
+                        <div class="wrap-contact100-form-btn">
+                            <div class="contact100-form-bgbtn"></div>
+                            <button type="submit" class="contact100-form-btn" value="submit">
+                                Submit {{ form.submit() }}
+                            </button>
+                        </div>
+                </div>
+
+				
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+
     </body>
 </html>
