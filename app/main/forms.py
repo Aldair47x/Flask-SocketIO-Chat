@@ -8,3 +8,4 @@ class LoginForm(Form):
     name = StringField('', validators=[Required()])
     room = StringField('', validators=[Required()])
     submit = SubmitField('')
+    
