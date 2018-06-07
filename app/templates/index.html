@@ -34,17 +34,17 @@
 	<div class="container-contact100">
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form" method="POST">
+					{{ form.hidden_tag() }}
                 <h1 style="font-family: 'Berkshire Swash', cursive;
                             margin: 30px;">Final project distributed systems</h1>
-				{{ form.hidden_tag() }}
+				
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
-					<input class="input100" class="lnr lnr-user" id="name" type="text" name="name" placeholder="Nickname">
+					<input class="input100" class="lnr lnr-user" id="name" name="name" type="text"  placeholder="Nickname">
 					<label class="label-input100" for="name">
-						<span class="lnr lnr-user" style="margin: 0px 0px 0px 200px;"></span>  
+						<span class="lnr lnr-user" style="margin: 0px 0px 0px 0px;"></span>  
 						<div style="visibility: hidden;">
-							
-							
-                    		{{ form.name() }}
+														
+                    		
 						</div>
                       
                         
@@ -86,11 +86,11 @@
 					</div>
                 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                        <input class="input100" id="room" type="text" name="room" value="room" placeholder="Room Name">
+                        <input class="input100" id="room" type="text" name="room" placeholder="Room Name">
                         <label class="label-input100" for="room">
 								<span class="lnr lnr-users" style="margin: 0px 0px 0px 20px;"></span>  
 								<div style="visibility: none;">
-								{{ room }}
+								
 								</div>
                         </label>
                         
@@ -100,12 +100,13 @@
 				<div class="container-contact100-form-btn">
                         <div class="wrap-contact100-form-btn">
                             <div class="contact100-form-bgbtn"></div>
-                            <button type="submit" class="contact100-form-btn" value="submit">
-                                Submit 
+                            <button type="submit" class="contact100-form-btn" >
+                            Submit 
 							</button>
-							{{ form.submit() }}
-                        </div>
-				</div>
+							
+						</div>
+						
+				
 
 				
 			</form>

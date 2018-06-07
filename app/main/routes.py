@@ -1,16 +1,15 @@
 from flask import session, redirect, url_for, render_template, request
 from . import main
 from .forms import LoginForm
+from flask_wtf import FlaskForm as BaseForm
 
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
     """Login form to enter a room."""
     form = LoginForm()
-    print("hola")
     print(form.name.data)
     if form.validate_on_submit():
-        print("apa")
         session['name'] = form.name.data
         session['room'] = form.room.data
         return redirect(url_for('.chat'))
