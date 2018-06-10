@@ -53,48 +53,52 @@
 												margin: 30px;">Flask chat with SOCKET IO</h1>
 									
 									
-								
+									<div class="wrap-input100 validate-input" data-validate = "Valid name">
+										<input class="input100" id="nombre" type="text" name="nombre" placeholder="Name">
+											<label class="label-input100" for="nombre">
+												<span class="lnr lnr-smile"></span>
+											</label>
+									</div>
+
+									<div class="wrap-input100 validate-input" data-validate = "Valid last name">
+											<input class="input100" id="Apellido" type="text" name="Apellido" placeholder="Last name">
+												<label class="label-input100" for="Apellido">
+													<span class="lnr lnr-spell-check"></span>
+												</label>
+									</div>
+					
+									<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+										<input class="input100" id="email" type="email" name="email" placeholder="Email">
+											<label class="label-input100" for="email">
+												<span class="lnr lnr-envelope"></span>
+											</label>
+									</div>
+						
+										<div class="wrap-input100 validate-input">
+											<input class="input100" id="pass" type="password" name="pass" placeholder="Password">
+											<label class="label-input100" for="pass">
+												<span class="lnr lnr-mustache"></span>
+											</label>
+										</div>
+							
+										<div class="wrap-input100 validate-input" data-validate = "Age is required: 20">
+											<input class="input100" id="edad" type="date" name="edad" placeholder="Date">
+											<label class="label-input100" for="edad">
+												<span class="lnr lnr-calendar-full"></span>
+											</label>
+										</div>
+						
+										<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+											<input  class="input100" id="genero" type="checkbox" name="Masculino" placeholder="Genre" >
+											<label class="label-input100" for="genre">
+													<select style="margin: 0px 0px 0px 20px;" >
+															<option value="Femenino">Female</option>
+															<option value="Masculino">Male</option>
+													</select>
+											</label>
+											
+										</div>
 										
-
-
-										<div class="wrap-input100 validate-input" data-validate="Name is required">
-												<input class="input100" class="lnr lnr-user" id="name" name="name" type="text"  placeholder="Nickname">
-												<label class="label-input100" for="name">
-													<span class="lnr lnr-user" style="margin: 0px 0px 0px 0px;"></span>  
-													<div style="visibility: hidden;">
-																					
-														
-													</div>
-												  
-													
-												</label>
-												
-										</div>
-
-										<div class="input-group mb-3">
-											<div class="input-group-prepend">
-											  <label class="input-group-text" for="inputGroupSelect01">Rooms</label>
-											</div>
-											<select onchange="cambio()" class="custom-select" id="inputGroupSelect01">
-											<option selected value="-1" disabled>Select option...</option>
-											{%for a in lista%}
-											  <option value="{{a}}">{{a}}</option>
-											{%endfor%}
-											  <option value="crear">Create room</option>
-											</select>
-										  </div>
-										  <div class="wrap-input100 validate-input" data-validate="Name is required">
-												<input class="input100" id="room" type="text" name="room" placeholder="Room Name" style="display:none">
-												<label class="label-input100" for="room">
-														<span class="lnr lnr-users" style="margin: 0px 0px 0px 20px;"></span>  
-														<div style="visibility: none;">
-														
-														</div>
-												</label>
-												
-										</div>
-									
-	
 
 					
 									<div class="container-contact100-form-btn">
@@ -104,16 +108,20 @@
 												Submit 
 												</button>
 												
-									</div>
+                                    </div>
+                                    </br>
 
-									<a href="/registrar" >Registrar </a>
+                                    
 											
 									
 					
 									
-								</form>
-							</div>
-						</div>
+                                </form>
+                                <a href="/" >Ingresar</a>
+                            </div>
+                            
+                        </div>
+                        
 			</div>
 		</div>
 	</div>
